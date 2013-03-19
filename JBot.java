@@ -26,6 +26,13 @@ public class JBot
     {
       super(url);
     }
+
+    public void getSite(String qurey)
+    {
+
+    }
+
+
   }
 
 
