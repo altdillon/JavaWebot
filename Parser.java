@@ -58,15 +58,15 @@
       return null;
     }
 
-    private ArrayList<String> preParse(ArrayList<String> text,String tag)
+    //<a href="whatevea.html">hello</a>
+    private ArrayList<String> preParse(String text,String tag)
     {
       String buffer="";
       int breakpoint=0;
       ArrayList<String> out=new ArrayList<String>();
-      for(int i=0;i<text.size();i++)
-      {
-        
-      }
+ 
+      
+
      return out;     
    }
 
