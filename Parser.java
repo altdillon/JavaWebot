@@ -22,7 +22,7 @@
      * @return an arraylist of links
      */
 
-    public ArrayList<String> getLinks()
+    public ArrayList<String> getLinks() 
     {
       ArrayList<String> rawtext=website.getRawText();     
       ArrayList<String> out=new ArrayList<String>();
@@ -42,6 +42,11 @@
 
       return out;
     }      
+   
+    public ArrayList<String> getResorce_regex(String html_resorce) //use pattern class for getting links with regex
+    {
+      return null;
+    }
    
     public ArrayList<String> getTextInput()
     {
