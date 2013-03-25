@@ -4,12 +4,23 @@
 
   public class Parser
   {
-    private Site website;
-
+    private String html;
 
     public Parser(Site site)
     {
       website=site;
+      ArrayList<String> list=site.getRawText();
+      
+      for(int i=0;i<list.size();i++)
+      {
+        //code for adding crap to html string
+      }
+      
+    }
+    
+    public Parser()
+    {
+      throw new Exception("site object needed before some one dies, I mean it!");
     }
     
     public String return_between(String str,String key,boolean include)
@@ -21,10 +32,10 @@
      * returns an array list of strings containg the url of links
      * @return an arraylist of links
      */
-
+/*
     public ArrayList<String> getLinks() 
     {
-      ArrayList<String> rawtext=website.getRawText();     
+      ArrayList<String> rawtext=website.getRawText(); // website class no longer used     
       ArrayList<String> out=new ArrayList<String>();
 
       for(int i=0;i<rawtext.size();i++)
@@ -42,7 +53,13 @@
 
       return out;
     }      
-   
+  */
+  
+    public ArrayList<String> getLinks()
+    {
+      
+    }
+  
     public ArrayList<String> getResorce_regex(String html_resorce) //use pattern class for getting links with regex
     {
       return null;
@@ -63,17 +80,6 @@
       return null;
     }
 
-    //<a href="whatevea.html">hello</a>
-    private ArrayList<String> preParse(String text,String tag)
-    {
-      String buffer="";
-      int breakpoint=0;
-      ArrayList<String> out=new ArrayList<String>();
- 
-      
-
-     return out;     
-   }
 
   }
 
