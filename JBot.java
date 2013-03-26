@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 public class JBot
@@ -18,14 +19,6 @@ public class JBot
     return (new Site(url,qurey));
   }
 
-  class SSLsite extends Site
-  {
-    public SSLsite(String url)
-    {
-      super(url);
-    }
-  }
-
   public static void main(String args[]) //test code
   {
     JBot bot=new JBot();
@@ -33,10 +26,8 @@ public class JBot
     Parser parse=bot.getParser(server);
     ArrayList<String> links=server.getRawText();  
     
-    System.out.println(parse.toString());    
-
-    //for(int i=0;i<links.size();i++)
-    //    System.out.println(links.get(i));                                       
+    for(int i=0;i<links.size();i++)
+        System.out.println(links.get(i));                                       
 
   }
 

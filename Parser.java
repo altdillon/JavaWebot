@@ -72,16 +72,21 @@
        return links;
     }
 
-   
+    
+    public ArrayList<String> getButtons()
+    {
+	return null;
+    }   
+
 
     public ArrayList<String> getTextBox()
     {
-      return null;
+       return null;
     }
    
     public ArrayList<String> getRadioButtons()
     {
-      return null;
+       return null;
     }
 
     public void submit() //need to play with submit more in http over telnet
