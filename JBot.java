@@ -1,6 +1,4 @@
-import java.io.*;
 import java.util.*;
-import java.net.*;
 
 public class JBot
 {
@@ -31,12 +29,14 @@ public class JBot
   public static void main(String args[]) //test code
   {
     JBot bot=new JBot();
-    Site server=bot.getSite("192.168.1.100");
+    Site server=bot.getSite("google.com");
     Parser parse=bot.getParser(server);
-    ArrayList<String> links=parse.getLinks();  
+    ArrayList<String> links=server.getRawText();  
     
-    for(int i=0;i<links.size();i++)
-        System.out.println(links.get(i));                                       
+    System.out.println(parse.toString());    
+
+    //for(int i=0;i<links.size();i++)
+    //    System.out.println(links.get(i));                                       
 
   }
 

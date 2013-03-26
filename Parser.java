@@ -8,25 +8,14 @@
 
     public Parser(Site site)
     {
-      website=site;
       ArrayList<String> list=site.getRawText();
       
       for(int i=0;i<list.size();i++)
       {
-        //code for adding crap to html string
+        html=html+list.get(i);
       }
       
     }
-    
-    public Parser()
-    {
-      throw new Exception("site object needed before some one dies, I mean it!");
-    }
-    
-    public String return_between(String str,String key,boolean include)
-    {
-      return null;
-    } 
 
     /**
      * returns an array list of strings containg the url of links
@@ -54,21 +43,36 @@
       return out;
     }      
   */
-  
-    public ArrayList<String> getLinks()
-    {
-      
-    }
-  
-    public ArrayList<String> getResorce_regex(String html_resorce) //use pattern class for getting links with regex
+
+    private String getLinkByName(String name)
     {
       return null;
     }
+  
+    public ArrayList<String> getLinks() //has not been tested with test page
+    {
+       ArrayList<String> links=new ArrayList<String>();
+       String out[]=html.split("<a href=\"");
+       int cut=0;       
+
+       for(int i=0;i<out.length;i++)
+       {
+           cut=out[i].indexOf("\">");
+           System.out.println(cut);
+          
+           if(cut>=1)
+             out[i]=out[i].substring(0,cut);
+       }
+
+       for(int i=0;i<out.length;i++)
+       {
+          links.add(out[i]);
+       }
+
+       return links;
+    }
+
    
-    public ArrayList<String> getTextInput()
-    {
-      return null;
-    }
 
     public ArrayList<String> getTextBox()
     {
@@ -80,6 +84,20 @@
       return null;
     }
 
+    public void submit() //need to play with submit more in http over telnet
+    {
+      String out[]=html.split("input type=\"submit\"");
+      
+      for(int i=0;i<out.length;i++)
+      {
+          System.out.println(out[i]);
+      }
+    }
+
+    public String toString()
+    {
+      return html;
+    }
 
   }
 
