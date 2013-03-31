@@ -3,7 +3,8 @@ import java.util.*;
 
 public class JBot
 {
-  
+    //factorys for parser and site classes  
+
   public Parser getParser(Site site)
   {
     return (new Parser(site));
@@ -24,7 +25,8 @@ public class JBot
     JBot bot=new JBot();
     Site server=bot.getSite("google.com");
     Parser parse=bot.getParser(server);
-    ArrayList<String> links=server.getRawText();  
+    //    server.cd("/pdf");
+    ArrayList<String> links=parse.getLinks();  
     
     for(int i=0;i<links.size();i++)
         System.out.println(links.get(i));                                       

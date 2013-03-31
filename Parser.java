@@ -1,10 +1,12 @@
   import java.net.*;
   import java.util.*;
   import java.io.*;
+  import java.util.regex.*;
 
   public class Parser
   {
     private String html;
+    private static Pattern href=Pattern.compile("<a[^>]*href=[\"'][^\"']*[\"'][^>]*>");
 
     public Parser(Site site)
     {
@@ -21,53 +23,27 @@
      * returns an array list of strings containg the url of links
      * @return an arraylist of links
      */
-/*
-    public ArrayList<String> getLinks() 
-    {
-      ArrayList<String> rawtext=website.getRawText(); // website class no longer used     
-      ArrayList<String> out=new ArrayList<String>();
 
-      for(int i=0;i<rawtext.size();i++)
-      {
-        int start=rawtext.get(i).indexOf("href=\"");
-        int stop=rawtext.get(i).indexOf("\">");      
-
-        if(start>0 && stop>0)
-        {
-          String link=rawtext.get(i).substring((start+6),stop);
-          out.add(link);
-        } 
-
-      }
-
-      return out;
-    }      
-  */
+   
 
     private String getLinkByName(String name)
     {
       return null;
     }
   
-    public ArrayList<String> getLinks() //has not been tested with test page
+    public ArrayList<String> getLinks() 
     {
        ArrayList<String> links=new ArrayList<String>();
-       String out[]=html.split("<a href=\"");
-       int cut=0;       
+       Scanner str=new Scanner(html);
 
-       for(int i=0;i<out.length;i++)
+       while(true)
        {
-           cut=out[i].indexOf("\">");
-           System.out.println(cut);
-          
-           if(cut>=1)
-             out[i]=out[i].substring(0,cut);
-       }
+	 String s = str.findWithinHorizon(href, 0);
+         if(s==null)
+	     break;
 
-       for(int i=0;i<out.length;i++)
-       {
-          links.add(out[i]);
-       }
+         links.add(s);
+       }       
 
        return links;
     }
